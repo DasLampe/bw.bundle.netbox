@@ -1,0 +1,14 @@
+# Netbox via Bundlewrap
+
+Install and configure https://netboxlabs.com[Netbox] via https://bundlewrap.org[Bundlewrap].
+
+## Configuration
+[source]
+----
+include::metadata.py[lines=2..48]
+----
+
+## Dependencies
+- https://github.com/sHorst/bw.bundle.apt/[apt-Bundle]
+- https://github.com/sHorst/bw.bundle.redis[redis-Bundle] (optional, you have to provide valid redis config)
+- https://github.com/sHorst/bw.bundle.postgres[postgres-Bundle] (optional, you have to provide a valid postgres config)
