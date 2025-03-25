@@ -207,7 +207,7 @@ if node.has_bundle('redis'):
 
 for plugin,plugin_cfg in cfg.get('plugins', {}).items():
     actions[f'netbox_install_plugin_{plugin}'] = {
-        'command': f'echo {plugin_cfg.get('pip_pkg', plugin)} >> local_requirements.txt;'
+        'command': f'echo {plugin_cfg.get('pip_pkg', plugin)} >> ${cfg.get('install_path')}/local_requirements.txt;'
                    f'. {cfg.get('install_path')}/venv/bin/activate; '
                    f'pip install {plugin_cfg.get('pip_pkg', plugin)} && '
                    f'python3 {cfg.get('install_path')}/netbox/manage.py migrate {plugin} && '
