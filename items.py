@@ -59,7 +59,7 @@ actions = {
     },
     'create_netbox_superuser': {
         'command': f'. {cfg.get('install_path')}/venv/bin/activate;'
-                   f'DJANGO_SUPERUSER_PASSWORD={cfg.get('superuser').get('password')} '
+                   f'DJANGO_SUPERUSER_PASSWORD={cfg.get('superuser').get('password', repo.vault.password_for(f'user_{cfg.get('superuser').get('username')}_netbox_{node.name}'))}'
                    f'python3 {cfg.get('install_path')}/netbox/manage.py createsuperuser --noinput '
                    f'--username {cfg.get('superuser').get('username')} --email {cfg.get('superuser').get('email')}',
         'triggered': True,
